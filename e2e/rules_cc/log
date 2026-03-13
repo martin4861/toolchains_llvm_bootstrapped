@@ -1,0 +1,51 @@
+Computing main repo mapping: 
+Loading: 
+Loading: 0 packages loaded
+Analyzing: 42 targets (0 packages loaded, 0 targets configured)
+Analyzing: 42 targets (0 packages loaded, 0 targets configured)
+
+INFO: Analyzed 42 targets (0 packages loaded, 0 targets configured).
+[51 / 1,459] Compiling src/filesystem/operations.cpp; 0s linux-sandbox ... (12 actions, 11 running)
+[75 / 1,459] Compiling src/filesystem/operations.cpp; 2s linux-sandbox ... (12 actions, 11 running)
+[100 / 1,459] Compiling src/locale.cpp; 3s linux-sandbox ... (12 actions, 11 running)
+[119 / 1,469] Compiling src/locale.cpp; 4s linux-sandbox ... (12 actions, 11 running)
+[140 / 1,511] Compiling src/locale.cpp; 5s linux-sandbox ... (12 actions, 11 running)
+[162 / 1,692] Compiling src/locale.cpp; 6s linux-sandbox ... (12 actions, 11 running)
+[187 / 1,692] Compiling src/locale.cpp; 7s linux-sandbox ... (12 actions, 11 running)
+INFO: From Linking libomp_test:
+clang++: warning: argument unused during compilation: '-static-libgcc' [-Wunused-command-line-argument]
+[207 / 1,707] Compiling llvm/utils/TableGen/Basic/IntrinsicEmitter.cpp [for tool]; 3s linux-sandbox ... (12 actions, 11 running)
+[228 / 1,936] Compiling llvm/utils/TableGen/Basic/IntrinsicEmitter.cpp [for tool]; 4s linux-sandbox ... (12 actions, 11 running)
+[244 / 1,936] Compiling llvm/lib/Remarks/RemarkSerializer.cpp [for tool]; 1s linux-sandbox ... (12 actions, 11 running)
+[259 / 1,937] Compiling llvm/utils/TableGen/Basic/RISCVTargetDefEmitter.cpp [for tool]; 1s linux-sandbox ... (12 actions, 11 running)
+INFO: From Linking main:
+clang++: warning: argument unused during compilation: '-static-libgcc' [-Wunused-command-line-argument]
+INFO: From Linking main_default:
+clang++: warning: argument unused during compilation: '-static-libgcc' [-Wunused-command-line-argument]
+[270 / 1,939] Compiling llvm/lib/Support/YAMLTraits.cpp [for tool]; 2s linux-sandbox ... (12 actions, 11 running)
+ERROR: /home/martin/git_repos/toolchains_llvm_bootstrapped/e2e/rules_cc/BUILD.bazel:300:16: Linking tysan_fail_/tysan_fail failed: (Exit 1): clang++ failed: error executing CppLink command (from target //:tysan_fail_/tysan_fail) external/llvm++_repo_rules+llvm-toolchain-minimal-22.1.0-linux-amd64/bin/clang++ @bazel-out/k8-fastbuild-ST-cecd37dd66bd/bin/tysan_fail_/tysan_fail-0.params
+
+Use --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging
+clang++: warning: argument unused during compilation: '-static-libgcc' [-Wunused-command-line-argument]
+ld.lld: error: undefined symbol: __tysan_instrument_mem_inst
+>>> referenced by tysan_fail.cc
+>>>               bazel-out/k8-fastbuild-ST-cecd37dd66bd/bin/_objs/tysan_fail_/tysan_fail/tysan_fail.pic.o:(main)
+>>> referenced by tysan_fail.cc
+>>>               bazel-out/k8-fastbuild-ST-cecd37dd66bd/bin/_objs/tysan_fail_/tysan_fail/tysan_fail.pic.o:(main)
+>>> referenced by tysan_fail.cc
+>>>               bazel-out/k8-fastbuild-ST-cecd37dd66bd/bin/_objs/tysan_fail_/tysan_fail/tysan_fail.pic.o:(main)
+>>> referenced 1 more times
+
+ld.lld: error: undefined symbol: __tysan_instrument_with_shadow_update
+>>> referenced by tysan_fail.cc
+>>>               bazel-out/k8-fastbuild-ST-cecd37dd66bd/bin/_objs/tysan_fail_/tysan_fail/tysan_fail.pic.o:(main)
+>>> referenced by tysan_fail.cc
+>>>               bazel-out/k8-fastbuild-ST-cecd37dd66bd/bin/_objs/tysan_fail_/tysan_fail/tysan_fail.pic.o:(main)
+>>> referenced by tysan_fail.cc
+>>>               bazel-out/k8-fastbuild-ST-cecd37dd66bd/bin/_objs/tysan_fail_/tysan_fail/tysan_fail.pic.o:(main)
+>>> referenced 8 more times
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 12.974s, Critical Path: 7.47s
+INFO: 278 processes: 12 action cache hit, 26 internal, 252 linux-sandbox.
+ERROR: Build did NOT complete successfully

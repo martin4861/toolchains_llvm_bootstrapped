@@ -7,16 +7,28 @@ load("//:http_bsdtar_archive.bzl", "http_bsdtar_archive")
 DEFAULT_LLVM_VERSIONS_INDEX_FILE = "//:llvm_versions.json"
 
 _DEFAULT_SOURCE_PATCHES = [
-    "//3rd_party/llvm-project/x.x/patches:llvm-extra.patch",
-    "//3rd_party/llvm-project/x.x/patches:clang-prepend-arg-reexec.patch",
-    "//3rd_party/llvm-project/x.x/patches:llvm-sanitizers-ignorelists.patch",
-    "//3rd_party/llvm-project/x.x/patches:no_frontend_builtin_headers.patch",
-    "//3rd_party/llvm-project/x.x/patches:llvm-bzl-library.patch",
-    "//3rd_party/llvm-project/x.x/patches:llvm-cov-multicall.patch",
-    "//3rd_party/llvm-project/x.x/patches:llvm-driver-tool-order.patch",
-    "//3rd_party/llvm-project/x.x/patches:llvm-dsymutil-corefoundation.patch",
-    "//3rd_party/llvm-project/x.x/patches:compiler-rt-symbolizer_skip_cxa_atexit.patch",
-    "//3rd_party/llvm-project/x.x/patches:lit_test_stub.patch",
+    # "//3rd_party/llvm-project/x.x/patches:llvm-extra.patch",
+    # "//3rd_party/llvm-project/x.x/patches:clang-prepend-arg-reexec.patch",
+    # "//3rd_party/llvm-project/x.x/patches:llvm-sanitizers-ignorelists.patch",
+    # "//3rd_party/llvm-project/x.x/patches:no_frontend_builtin_headers.patch",
+    # "//3rd_party/llvm-project/x.x/patches:llvm-bzl-library.patch",
+    # "//3rd_party/llvm-project/x.x/patches:llvm-cov-multicall.patch",
+    # "//3rd_party/llvm-project/x.x/patches:llvm-driver-tool-order.patch",
+    # "//3rd_party/llvm-project/x.x/patches:llvm-dsymutil-corefoundation.patch",
+    # "//3rd_party/llvm-project/x.x/patches:compiler-rt-symbolizer_skip_cxa_atexit.patch",
+    # "//3rd_party/llvm-project/x.x/patches:lit_test_stub.patch",
+]
+
+_LLVM_20_SOURCE_PATCHES = _DEFAULT_SOURCE_PATCHES + [
+    # "//3rd_party/llvm-project/20.x/patches:llvm-link-multicall.patch",
+    # "//3rd_party/llvm-project/20.x/patches:llvm-bazel9.patch",
+    # "//3rd_party/llvm-project/20.x/patches:windows_link_and_genrule.patch",
+    # "//3rd_party/llvm-project/20.x/patches:bundle_resources_no_python.patch",
+    # "//3rd_party/llvm-project/20.x/patches:no_zlib_genrule.patch",
+    # "//3rd_party/llvm-project/20.x/patches:no_rules_python.patch",
+    # "//3rd_party/llvm-project/20.x/patches:llvm-overlay-starlark.patch",
+    # "//3rd_party/llvm-project/20.x/patches:llvm-windows-stack-size.patch",
+    # "//3rd_party/llvm-project/20.x/patches:libcxx-lgamma_r.patch",
 ]
 
 _LLVM_21_SOURCE_PATCHES = _DEFAULT_SOURCE_PATCHES + [
@@ -42,6 +54,7 @@ _LLVM_22_SOURCE_PATCHES = _DEFAULT_SOURCE_PATCHES + [
 ]
 
 _LLVM_PATCHES_BY_MAJOR = {
+    20: _LLVM_20_SOURCE_PATCHES,
     21: _LLVM_21_SOURCE_PATCHES,
     22: _LLVM_22_SOURCE_PATCHES,
     # So that anyone can test with the next LLVM major easily.
